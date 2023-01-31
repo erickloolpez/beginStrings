@@ -31,7 +31,42 @@ void exerciseOne() {
   cout << endl;
 }
 
-void exerciseTwo() {}
+string removeSpaces(std::string phrase){
+    string withoutSpace;
+
+    for(int i = 0 ; i < phrase.length(); i++){
+        if(phrase[i] != ' ')
+            withoutSpace += phrase[i];
+        
+    }
+    return withoutSpace;
+}
+
+bool isPalindroma(std::string phrase){
+    int a = 0;
+    int b = phrase.length()-1;
+
+    for(int i = 0 ; i < phrase.length(); i ++){
+        if(tolower(phrase[a]) != tolower(phrase[b]))
+            return false;
+    }
+    return true;
+}
+
+void exerciseTwo() {
+    std::string phrase;
+
+    std::cout<<"\n->Enter any phrase:";
+    getline(std::cin, phrase);
+
+    phrase = removeSpaces(phrase);
+
+    if(isPalindroma(phrase))
+        std::cout<<"\nThe phrase entered is Palindroma\n";
+    else
+        std::cout<<"\nThe phrase entered is not Palindroma\n";
+
+}
 
 int main() {
   int op = 0;
